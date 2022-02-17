@@ -3,7 +3,12 @@ import styled from "styled-components";
 export const Login = (props) => {
   return (
     <Container>
-      <Content>Content</Content>
+      <Content>
+        <CTA>
+          <CTALogoOne src="/images/cta-logo-one.svg" alt="" />
+        </CTA>
+        <BgImage />
+      </Content>
     </Container>
   );
 };
@@ -28,4 +33,38 @@ align-items: center;
 flex-direction: column;
 padding: 80px 40px;
 height: 100%;
+`;
+
+const BgImage = styled.div`
+  height: 100%;
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("/images/login-background.jpg");
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: -1;
+`;
+
+const CTA = styled.div`
+  margin-bottom: 2vw;
+  max-width: 650px;
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  justify-content: centre;
+  margin-top: 0;
+  align-items: centre;
+  text-align: centre;
+  margin-right: auto;
+`;
+
+const CTALogoOne = styled.img`
+  margin-bottom: 12px;
+  max-width: 600px;
+  min-height: 1px;
+  display: block;
+  width: 100%;
 `;
