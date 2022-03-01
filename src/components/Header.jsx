@@ -7,12 +7,22 @@ import {
   setUserLoginDetails,
   selectUserPhoto,
 } from "../features/user/userSlice";
+import { useEffect } from "react";
 
 export const Header = (props) => {
   const dispatch = useDispatch();
   const history = useNavigate();
   const userName = useSelector(selectUserName);
   const userPhoto = useSelector(selectUserPhoto);
+
+  useEffect(() => {
+    auth.onAuthStateChanged(async (user) => {
+      if (user) {
+        setUser(user);
+        history.push("/home");
+      }
+    });
+  }, [userName]);
 
   const handleAuth = () => {
     auth
