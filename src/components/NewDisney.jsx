@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-export const Recommends = () => {
+export const NewDisney = () => {
   return (
     <Container>
-      <h4>Recommended for you</h4>
+      <h4>New to Disney+</h4>
       <Content>
         <Wrap>
           <Link to="/">
