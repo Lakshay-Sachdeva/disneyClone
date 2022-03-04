@@ -20,7 +20,7 @@ export const Header = (props) => {
     auth.onAuthStateChanged(async (user) => {
       if (user) {
         setUser(user);
-        history.push("/home");
+        history("/home");
       }
     });
   }, [userName]);
@@ -40,14 +40,13 @@ export const Header = (props) => {
         .signOut()
         .then(() => {
           dispatch(setSignOutState());
-          history.push("/");
+          history("/");
         })
         .catch((err) => alert(err.message));
     }
   };
 
   const setUser = (user) => {
-    console.log(user);
     dispatch(
       setUserLoginDetails({
         name: user.displayName,
@@ -62,6 +61,7 @@ export const Header = (props) => {
       <Logo>
         <img src="/images/logo.svg" alt="Disney+" />
       </Logo>
+
       {!userName ? (
         <Login onClick={handleAuth}>Login</Login>
       ) : (
@@ -144,27 +144,24 @@ const NavMenu = styled.div`
   position: relative;
   margin-right: auto;
   margin-left: 25px;
-
   a {
     display: flex;
     align-items: center;
     padding: 0 12px;
-
     img {
       height: 20px;
       min-width: 20px;
       width: 20px;
       z-index: auto;
     }
-
     span {
       color: rgb(249, 249, 249);
+      font-size: 13px;
       letter-spacing: 1.42px;
       line-height: 1.08;
       padding: 2px 0px;
-      white-space: npwrap;
+      white-space: nowrap;
       position: relative;
-
       &:before {
         background-color: rgb(249, 249, 249);
         border-radius: 0px 0px 4px 4px;
@@ -182,7 +179,6 @@ const NavMenu = styled.div`
         width: auto;
       }
     }
-
     &:hover {
       span:before {
         transform: scaleX(1);
@@ -191,10 +187,10 @@ const NavMenu = styled.div`
       }
     }
   }
+  /* @media (max-width: 768px) {
+    display: none;
+  } */
 `;
-//   /* @media (max-width: 768px) {
-//     display: none;
-//   } */
 
 const Login = styled.a`
   background-color: rgba(0, 0, 0, 0.6);
@@ -221,12 +217,12 @@ const DropDown = styled.div`
   top: 48px;
   right: 0px;
   background: rgb(19, 19, 19);
-  border: 1px solid rgba(151, 151, 151 0.34);
+  border: 1px solid rgba(151, 151, 151, 0.34);
   border-radius: 4px;
-  box-sahdow: rgb(0 0 0 / 50%) 0px 0px 18px 0px;
+  box-shadow: rgb(0 0 0 / 50%) 0px 0px 18px 0px;
   padding: 10px;
   font-size: 14px;
-  letter-sapcing: 3px;
+  letter-spacing: 3px;
   width: 100px;
   opacity: 0;
 `;

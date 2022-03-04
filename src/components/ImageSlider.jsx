@@ -22,8 +22,8 @@ export const ImageSlider = () => {
 
   return (
     <Carousel {...settings}>
-      {ImageArray.map((el) => (
-        <Wrap>
+      {ImageArray.map((el, key) => (
+        <Wrap key={key}>
           <a href="/home">
             <img src={el} alt="" />
           </a>
